@@ -1,10 +1,12 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Chat Room</title>
-</head>
-<body>
-    <h1>Welcome to the Chat Room!</h1>
-    <p>This is a placeholder for the chat room content.</p>
-</body>
-</html>
+{% extends "kolibri/base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+  {% trans "Chat Room" %}
+{% endblock %}
+
+{% block content %}
+  <div id="app"></div>
+  <script type="text/javascript" src="{{ webpack_url }}"></script>
+{% endblock %}

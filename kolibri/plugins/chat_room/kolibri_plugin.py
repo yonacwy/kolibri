@@ -1,28 +1,17 @@
-from kolibri.core.auth.constants.user_kinds import COACH
-from kolibri.core.hooks import NavigationHook
-from kolibri.core.webpack import KolibriPluginBase
-from kolibri.plugins.hooks import register_hook
-from kolibri.core.urls import reverse as url_reverse
-from . import urls
+from __future__ import absolute_import, print_function, unicode_literals
 
-class ChatRoom(KolibriPluginBase):
-    bundle_id = "main"
-    url_slug = "chat_room"
-    translated_view_urls = "urls"
-    navigation_url = "/chat_room/"
+from kolibri.core.webpack import hooks as webpack_hooks
+from kolibri.plugins.base import KolibriPluginBase
 
-@register_hook
-class ChatRoomNavItem(NavigationHook):
-    bundle_id = "side_nav"
-    roles = (COACH,)
 
-    @property
-    def menu_spec(self):
-        return [
-            {
-                "url": url_reverse("kolibri.plugins.chat_room:chat_room"),
-                "text": "Chat Room",
-                "icon": "chat",
-                "category": "coach",
-            },
-        ]
+class ChatRoomAsset(webpack_hooks.WebpackBundleHook):
+    unique_slug = "chat_room_module"
+    src_file = "assets/src/app.js"
+
+
+class ChatRoomPlugin(KolibriPluginBase):
+    unqiue_slug = "chat_room"
+    default_enabled = True
+
+    class KolibriFrontend(KolibriPluginBase.KolibriFrontend):
+        webpack_bundle_hooks = [ChatRoomAsset]

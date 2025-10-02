@@ -9,7 +9,7 @@ setup(
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
     url="https://github.com/yourusername/kolibri_chat_room",
-    packages=["chat_room"],
+    packages=["."],
     include_package_data=True,
     install_requires=["kolibri>=0.16.0"],  # Adjust to your Kolibri version
     zip_safe=False,

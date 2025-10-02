@@ -43,4 +43,5 @@ INTERNAL_PLUGINS = [
     "kolibri.plugins.policies",
     "kolibri.plugins.bloompub_viewer",
     "kolibri.plugins.safe_html5_viewer",
+    "kolibri.plugins.chat_room",
 ]

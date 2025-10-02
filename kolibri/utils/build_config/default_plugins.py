@@ -15,4 +15,5 @@ DEFAULT_PLUGINS = [
     "kolibri.plugins.user_auth",
     "kolibri.plugins.user_profile",
     "kolibri.plugins.bloompub_viewer",
+    "kolibri.plugins.chat_room",
 ]

@@ -48,5 +48,6 @@ urlpatterns = urlpatterns + [
         name="schema-redoc",
     ),
     re_path(r"^api-auth/", include("rest_framework.urls", namespace="rest_framework")),
+    path("chat_room/", include("kolibri.plugins.chat_room.urls")),
     path("__debug__/", include("debug_toolbar.urls")),
 ]
